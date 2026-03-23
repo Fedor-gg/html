@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oleg Dengi - Главная</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Oleg Dengi</a>
+            <nav class="nav" id="nav">
+                <a href="index.html" class="nav-link active">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="cart.html" class="nav-link cart-link">
+                    Корзина <span id="cart-count" class="cart-count">0</span>
+                </a>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+        </div>
+    </header>
+
+    <main class="hero">
+        <div class="container">
+            <h1>Создайте самый скучный интерьер</h1>
+            <p>Лучший мусор, освещение если вам мало солнца или люстры дома и декор для советского (максимум) интерьера</p>
+            <a href="catalog.html" class="btn btn-primary">Смотреть каталог</a>
+        </div>
+    </main>
+
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Бесплатная доставка</h3>
+                    <p>При заказе от 100000 ₽</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Гарантия качества</h3>
+                    <p>На все товары 2 минуты</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">↩️</div>
+                    <h3>Возврат 30 секунд</h3>
+                    <p>Без лишних вопросов (возможно)</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💬</div>
+                    <h3>Онлайн поддержка</h3>
+                    <p>24/8 спим</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Категории</h2>
+            <div class="categories-grid">
+                <a href="catalog.html?category=furniture" class="category-card">
+                    <span class="category-name">Мебель</span>
+                </a>
+                <a href="catalog.html?category=lighting" class="category-card">
+                    <span class="category-name">Освещение</span>
+                </a>
+                <a href="catalog.html?category=textiles" class="category-card">
+                    <span class="category-name">Текстиль</span>
+                </a>
+                <a href="catalog.html?category=decor" class="category-card">
+                    <span class="category-name">Декор</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="promo">
+        <div class="container">
+            <div class="promo-content">
+                <span class="promo-badge">Акция</span>
+                <h2>Скидка 1% на всю мебель</h2>
+                <p>До конца месяца действует special offer</p>
+                <a href="catalog.html?sale=true" class="btn btn-secondary">Смотреть Sale</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Oleg Dengi</h4>
+                    <p>Вы пожалеете если чо то купите</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Навигация</h4>
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="cart.html">Корзина</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Email: еще че</p>
+                    <p>Телефон: +67</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Oleg Dengi. Все права ни в коем случае не защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
