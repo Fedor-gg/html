@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Macan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #fbfcfd;
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            z-index: 1000;
+            border-bottom: 1px solid #e2edf2;
+            transition: all 0.2s;
+        }
+
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 14px 0;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1f5e7e, #2c9f6e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .logo span {
+            font-weight: 300;
+            color: #4b6f8c;
+            background: none;
+            background-clip: unset;
+            -webkit-background-clip: unset;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1f3b4c;
+            transition: all 0.25s ease;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: #2c9f6e;
+            border-bottom-color: #2c9f6e;
+            transform: translateY(-1px);
+        }
+
+        main {
+            padding-top: 86px;
+        }
+
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid #e9edf2;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #eef7fc 0%, #ffffff 80%);
+        }
+
+        h1 {
+            font-size: 3.3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            background: linear-gradient(145deg, #1a4e6e, #218f62);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #2c4a62;
+            max-width: 620px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1f6e50;
+            color: white;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #0f543c;
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(28, 110, 64, 0.25);
+            cursor: pointer;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px 20px;
+            border-radius: 28px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+            transition: all 0.25s ease;
+            border: 1px solid #e2ecf0;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 36px -12px rgba(31, 94, 110, 0.2);
+            background-color: #ffffff;
+            border-color: #cbdde6;
+        }
+
+        .card h3 {
+            margin: 16px 0 10px;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #3c5a6f;
+        }
+
+        .emoji-big {
+            font-size: 3rem;
+        }
+
+        .media-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .video-card {
+            flex: 1;
+            min-width: 260px;
+            background: #00000008;
+            border-radius: 32px;
+            padding: 16px;
+            background: #f5fafd;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .media-caption {
+            flex: 0.8;
+            min-width: 200px;
+        }
+
+        .contact-block {
+            background: #eef3f7;
+            border-radius: 48px;
+            padding: 48px 36px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin: 28px 0 20px;
+        }
+
+        .contact-icons a {
+            font-size: 2rem;
+            text-decoration: none;
+            transition: transform 0.2s ease, filter 0.2s;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .contact-icons a:hover {
+            transform: scale(1.12);
+            filter: drop-shadow(0 6px 8px rgba(0,0,0,0.1));
+        }
+
+        .contact-link {
+            background: #1f6e50;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+
+        .contact-link:hover {
+            background: #0a4f38;
+            transform: scale(1.02);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        footer {
+            background: #0f2a34;
+            color: #cddfe6;
+            padding: 40px 0 30px;
+        }
+
+        .footer-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #bcd3de;
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #71d6aa;
+        }
+
+        hr {
+            margin: 24px 0 16px;
+            border-color: #2b515f;
+        }
+
+        @media (max-width: 760px) {
+            .header-flex {
+                flex-direction: column;
+                gap: 12px;
+            }
+            nav ul {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .media-wrapper {
+                flex-direction: column;
+            }
+            .footer-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-flex">
+        <div class="logo">Macan</div>
+        <nav>
+            <ul>
+                <li><a href="#about">О проекте</a></li>
+                <li><a href="#features">Возможности</a></li>
+                <li><a href="#media">Медиа</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="about">
+        <div class="container">
+            <h1>Макан. песни макана.<br>Будущее за маканом.</h1>
+            <p>Macan — сайт для фанов макана.</p>
+            <a href="#media" class="btn">Узнать больше</a>
+        </div>
+    </section>
+    <section id="features">
+        <div class="container">
+            <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Почему этот крутой сайт выбирают?</h2>
+            <p style="color: #3c6a7e; margin-bottom: 1rem;">ну так тут макана много</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="emoji-big">🎙️</div>
+                    <h3>интервью</h3>
+                    <p>Разговоры с маканом и его кентами.</p>
+                </div>
+                <div class="card">
+                    <div class="emoji-big">📊</div>
+                    <h3>Аналитика трендов</h3>
+                    <p>Разбираем тренды с маканом.</p>
+                </div>
+                <div class="card">
+                    <div class="emoji-big">🎬</div>
+                    <h3>Макан</h3>
+                    <p>Эксклюзивные песни макана.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="media">
+        <div class="container">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Медиатека</h2>
+            <div class="media-wrapper">
+                <div class="media-caption">
+                    <h3>🎧 МАКАН ТОПЧИК МУЗИК</h3>
+                    <p></p>
+                    <audio controls style="width: 100%; margin-top: 16px;">
+                        <source src="Macan_-_ASPHALT_8_76179358.mp3" type="audio/mpeg">
+                        Ваш браузер не поддерживает аудио.
+                    </audio>
+                    <small style="color: #3f7f6b;">⭐ Доступно на всех платформах</small>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <div class="contact-block">
+                <h2>Это оч крутой сайт</h2>
+                <p>Здесь нет макана.</p>
+                <div class="contact-icons">
+                    <a href="#" style="cursor: pointer;">📧</a>
+                    <a href="#" style="cursor: pointer;">🐦</a>
+                    <a href="#" style="cursor: pointer;">📷</a>
+                    <a href="#" style="cursor: pointer;">🎵</a>
+                </div>
+                <a href="#" class="contact-link">кнопка макана →</a>
+                <p style="margin-top: 24px; font-size: 0.9rem;">✉️ yamakan@gmail.com | Telegram: @macanprivet</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-flex">
+            <div>© 2026 Macan. я макан.</div>
+            <div class="footer-links">
+                <a href="#">Privacy</a> |
+                <a href="#">Terms</a> |
+                <a href="#">Контакты</a>
+            </div>
+        </div>
+        <hr>
+        <div style="font-size: 0.85rem; text-align: center;">тут музыка с маканом есть.</div>
+    </div>
+</footer>
+
+</body>
+</html>
